@@ -122,7 +122,7 @@
 </head>
 
 <body>
-	<div class="swiper-container">
+	<div class="swiper-container vertical">
     <div class="swiper-wrapper">
 			<div class="swiper-slide p1">
 				<img src="./s2-1.png" class="ani resize" style="width:320px;height:170px;" swiper-animate-effect="zoomIn" swiper-animate-duration="1.5s" swiper-animate-delay="0s">
@@ -132,7 +132,29 @@
 			<div class="swiper-slide p2">
 				<img src="./s3-1.png" class="ani resize" style="width:320px;height:257px;"swiper-animate-effect="fadeInDownBig" swiper-animate-duration="1.5s" swiper-animate-delay="0s">
 			</div>
+			
+			<!--  轮播   -->
+		<!--	<div class="swiper-slide p3">
+				<img src="./s4-1.png"  class="ani resize" style="width:320px;height:179px;">
+				<div class="swiper-container horizontal ani resize" style="background:rgba(0,0,0,0); width:320px;height:200px;top:200px;">
+			    <div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<img src="./s4-1.png">
+						</div>
+						<div class="swiper-slide">
+							<img src="./s4-2.png">
+						</div>
+						<div class="swiper-slide">
+							<img src="./s4-3.png">
+						</div>
+				
+					</div>
+				</div>
+			</div>-->
+			<!-- end -->
+				
 			<div class="swiper-slide p3">
+				
 				<img src="./s4-1.png" class="ani resize" style="width:320px;height:179px;" swiper-animate-effect="zoomIn" swiper-animate-duration="1.5s" swiper-animate-delay="0s">
 				<img src="./s4-2.png" class="ani resize" style="width:320px;height:108px;top:179px;" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s">
 				<img src="./s4-3.png" class="ani resize" style="width:320px;height:64px;top:387px;" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.5s" swiper-animate-delay="1s">
@@ -159,12 +181,19 @@
 			   resizes[j].style.top=parseInt(resizes[j].style.top)*scaleH+'px';
 			   resizes[j].style.left=parseInt(resizes[j].style.left)*scaleW+'px'; 
 	          }
-
-	  var mySwiper = new Swiper ('.swiper-container', {
+		/****  轮播   ****/
+		var myswiperH = new Swiper('.horizontal', {
+				direction : 'horizontal',
+        paginationClickable: true,
+        spaceBetween: 50
+    });				
+		/**** end ****/
+	  var mySwiperV = new Swiper ('.vertical', {
 	   direction : 'vertical',
 	   pagination: '.swiper-pagination',
 	  //virtualTranslate : true,
-	   mousewheelControl : true,
+		//鼠标滑动
+	   mousewheelControl : false,
 	   onInit: function(swiper){
 	   swiperAnimateCache(swiper);
 	   swiperAnimate(swiper);
@@ -220,7 +249,7 @@
 							swiper.myactive = swiper.activeIndex;
 
 						},
-						//平滑
+						//平滑效果
 	      /*onProgress: function(swiper){
 	        for (var i = 0; i < swiper.slides.length; i++){
 	          var slide = swiper.slides[i];
